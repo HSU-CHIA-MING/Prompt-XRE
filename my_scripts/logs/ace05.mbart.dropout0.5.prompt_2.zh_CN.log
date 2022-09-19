@@ -1,0 +1,761 @@
+2022-03-29 07:57:11 | INFO | fairseq_cli.train | {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 100, 'log_format': None, 'tensorboard_logdir': '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/tensorboard', 'wandb_project': None, 'seed': 222, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': True, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 'fp16_init_scale': 4, 'fp16_scale_window': 128, 'fp16_scale_tolerance': 0.0, 'min_loss_scale': 0.0001, 'threshold_loss_scale': 1.0, 'user_dir': None, 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'model_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': True}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training': {'_name': None, 'distributed_world_size': 1, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': None, 'distributed_port': -1, 'device_id': 0, 'distributed_no_spawn': False, 'ddp_backend': 'no_c10d', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': False, 'find_unused_parameters': True, 'fast_stat_sync': False, 'broadcast_buffers': False, 'distributed_wrapper': 'DDP', 'slowmo_momentum': None, 'slowmo_algorithm': 'LocalSGD', 'localsgd_frequency': 3, 'nprocs_per_node': 1, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devices': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': None, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'tpu': False, 'distributed_num_procs': 1}, 'dataset': {'_name': None, 'num_workers': 1, 'skip_invalid_size_inputs_valid_test': False, 'max_tokens': 4400, 'batch_size': 64, 'required_batch_size_multiple': 1, 'required_seq_len_multiple': 1, 'dataset_impl': None, 'data_buffer_size': 10, 'train_subset': 'train', 'valid_subset': 'valid', 'validate_interval': 1, 'validate_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': 4400, 'batch_size_valid': 64, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0}, 'optimization': {'_name': None, 'max_epoch': 10, 'max_update': 2500, 'stop_time_hours': 0.0, 'clip_norm': 0.0, 'sentence_avg': False, 'update_freq': [1], 'lr': [2e-05], 'min_lr': -1.0, 'use_bmuf': False}, 'checkpoint': {'_name': None, 'save_dir': '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN', 'restore_file': '/workspace/data/users/zanchangtong1/mbart.cc25/model.pt', 'finetune_from_model': None, 'reset_dataloader': True, 'reset_lr_scheduler': True, 'reset_meters': True, 'reset_optimizer': True, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 0, 'keep_interval_updates': -1, 'keep_last_epochs': -1, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': False, 'no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'accuracy', 'maximize_best_checkpoint_metric': True, 'patience': -1, 'checkpoint_suffix': '', 'checkpoint_shard_count': 1, 'model_parallel_size': 1, 'distributed_rank': 0}, 'bmuf': {'_name': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size': 1}, 'generation': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': False, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'interactive': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': Namespace(_name='mbart_large', activation_fn='gelu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, add_prev_output_tokens=True, all_gather_list_size=16384, arch='mbart_large', attention_dropout=0.1, batch_size=64, batch_size_valid=64, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_shard_count=1, checkpoint_suffix='', classification_head_name='sentence_classification_head', clip_norm=0.0, cpu=False, criterion='sentence_prediction', cross_self_attention=False, curriculum=0, data='/workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.prompt_2/Zh/', data_buffer_size=10, dataset_impl=None, ddp_backend='no_c10d', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_input_dim=1024, decoder_layerdrop=0, decoder_layers=12, decoder_layers_to_keep=None, decoder_learned_pos=True, decoder_normalize_before=True, decoder_output_dim=1024, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.5, empty_cache_freq=0, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=4096, encoder_layerdrop=0, encoder_layers=12, encoder_layers_to_keep=None, encoder_learned_pos=True, encoder_normalize_before=True, end_learning_rate=0.0, eos=2, fast_stat_sync=False, find_unused_parameters=True, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=4, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=128, gen_subset='test', init_token=0, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, langs='ar_AR,cs_CZ,de_DE,en_XX,es_XX,et_EE,fi_FI,fr_XX,gu_IN,hi_IN,it_IT,ja_XX,kk_KZ,ko_KR,lt_LT,lv_LV,my_MM,ne_NP,nl_XX,ro_RO,ru_RU,si_LK,tr_TR,vi_VN,zh_CN', layernorm_embedding=True, localsgd_frequency=3, log_format=None, log_interval=100, lr=[2e-05], lr_scheduler='polynomial_decay', max_epoch=10, max_source_positions=1024, max_target_positions=1024, max_tokens=4400, max_tokens_valid=4400, max_update=2500, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=-1.0, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=False, no_shuffle=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_classes=18, num_shards=1, num_workers=1, optimizer='adam', optimizer_overrides='{}', pad=1, patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, prepend_bos=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, regression_target=False, relu_dropout=0.0, required_batch_size_multiple=1, required_seq_len_multiple=1, reset_dataloader=True, reset_logging=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, restore_file='/workspace/data/users/zanchangtong1/mbart.cc25/model.pt', save_dir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN', save_interval=1, save_interval_updates=0, scoring='bleu', seed=222, sentence_avg=False, separator_token=None, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, shorten_data_split_list='', shorten_method='none', skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, src_language='zh_CN', stop_time_hours=0, task='mbart_sentence_prediction', tensorboard_logdir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/tensorboard', tgt_language='zh_CN', threshold_loss_scale=1.0, tokenizer=None, total_num_update='2500', tpu=False, train_subset='train', unk=3, update_freq=[1], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, wandb_project=None, warmup_updates=68, weight_decay=0.01, zero_sharding='none'), 'task': Namespace(_name='mbart_sentence_prediction', activation_fn='gelu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, add_prev_output_tokens=True, all_gather_list_size=16384, arch='mbart_large', attention_dropout=0.1, batch_size=64, batch_size_valid=64, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_shard_count=1, checkpoint_suffix='', classification_head_name='sentence_classification_head', clip_norm=0.0, cpu=False, criterion='sentence_prediction', cross_self_attention=False, curriculum=0, data='/workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.prompt_2/Zh/', data_buffer_size=10, dataset_impl=None, ddp_backend='no_c10d', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_input_dim=1024, decoder_layerdrop=0, decoder_layers=12, decoder_layers_to_keep=None, decoder_learned_pos=True, decoder_normalize_before=True, decoder_output_dim=1024, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.5, empty_cache_freq=0, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=4096, encoder_layerdrop=0, encoder_layers=12, encoder_layers_to_keep=None, encoder_learned_pos=True, encoder_normalize_before=True, end_learning_rate=0.0, eos=2, fast_stat_sync=False, find_unused_parameters=True, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=4, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=128, gen_subset='test', init_token=0, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, langs='ar_AR,cs_CZ,de_DE,en_XX,es_XX,et_EE,fi_FI,fr_XX,gu_IN,hi_IN,it_IT,ja_XX,kk_KZ,ko_KR,lt_LT,lv_LV,my_MM,ne_NP,nl_XX,ro_RO,ru_RU,si_LK,tr_TR,vi_VN,zh_CN', layernorm_embedding=True, localsgd_frequency=3, log_format=None, log_interval=100, lr=[2e-05], lr_scheduler='polynomial_decay', max_epoch=10, max_source_positions=1024, max_target_positions=1024, max_tokens=4400, max_tokens_valid=4400, max_update=2500, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=-1.0, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=False, no_shuffle=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_classes=18, num_shards=1, num_workers=1, optimizer='adam', optimizer_overrides='{}', pad=1, patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, prepend_bos=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, regression_target=False, relu_dropout=0.0, required_batch_size_multiple=1, required_seq_len_multiple=1, reset_dataloader=True, reset_logging=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, restore_file='/workspace/data/users/zanchangtong1/mbart.cc25/model.pt', save_dir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN', save_interval=1, save_interval_updates=0, scoring='bleu', seed=222, sentence_avg=False, separator_token=None, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, shorten_data_split_list='', shorten_method='none', skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, src_language='zh_CN', stop_time_hours=0, task='mbart_sentence_prediction', tensorboard_logdir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/tensorboard', tgt_language='zh_CN', threshold_loss_scale=1.0, tokenizer=None, total_num_update='2500', tpu=False, train_subset='train', unk=3, update_freq=[1], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, wandb_project=None, warmup_updates=68, weight_decay=0.01, zero_sharding='none'), 'criterion': Namespace(_name='sentence_prediction', activation_fn='gelu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, add_prev_output_tokens=True, all_gather_list_size=16384, arch='mbart_large', attention_dropout=0.1, batch_size=64, batch_size_valid=64, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_shard_count=1, checkpoint_suffix='', classification_head_name='sentence_classification_head', clip_norm=0.0, cpu=False, criterion='sentence_prediction', cross_self_attention=False, curriculum=0, data='/workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.prompt_2/Zh/', data_buffer_size=10, dataset_impl=None, ddp_backend='no_c10d', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_input_dim=1024, decoder_layerdrop=0, decoder_layers=12, decoder_layers_to_keep=None, decoder_learned_pos=True, decoder_normalize_before=True, decoder_output_dim=1024, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.5, empty_cache_freq=0, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=4096, encoder_layerdrop=0, encoder_layers=12, encoder_layers_to_keep=None, encoder_learned_pos=True, encoder_normalize_before=True, end_learning_rate=0.0, eos=2, fast_stat_sync=False, find_unused_parameters=True, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=4, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=128, gen_subset='test', init_token=0, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, langs='ar_AR,cs_CZ,de_DE,en_XX,es_XX,et_EE,fi_FI,fr_XX,gu_IN,hi_IN,it_IT,ja_XX,kk_KZ,ko_KR,lt_LT,lv_LV,my_MM,ne_NP,nl_XX,ro_RO,ru_RU,si_LK,tr_TR,vi_VN,zh_CN', layernorm_embedding=True, localsgd_frequency=3, log_format=None, log_interval=100, lr=[2e-05], lr_scheduler='polynomial_decay', max_epoch=10, max_source_positions=1024, max_target_positions=1024, max_tokens=4400, max_tokens_valid=4400, max_update=2500, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=-1.0, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=False, no_shuffle=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_classes=18, num_shards=1, num_workers=1, optimizer='adam', optimizer_overrides='{}', pad=1, patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, prepend_bos=False, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, regression_target=False, relu_dropout=0.0, required_batch_size_multiple=1, required_seq_len_multiple=1, reset_dataloader=True, reset_logging=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, restore_file='/workspace/data/users/zanchangtong1/mbart.cc25/model.pt', save_dir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN', save_interval=1, save_interval_updates=0, scoring='bleu', seed=222, sentence_avg=False, separator_token=None, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, shorten_data_split_list='', shorten_method='none', skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, src_language='zh_CN', stop_time_hours=0, task='mbart_sentence_prediction', tensorboard_logdir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/tensorboard', tgt_language='zh_CN', threshold_loss_scale=1.0, tokenizer=None, total_num_update='2500', tpu=False, train_subset='train', unk=3, update_freq=[1], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, wandb_project=None, warmup_updates=68, weight_decay=0.01, zero_sharding='none'), 'optimizer': {'_name': 'adam', 'adam_betas': '(0.9, 0.98)', 'adam_eps': 1e-08, 'weight_decay': 0.01, 'use_old_adam': False, 'tpu': False, 'lr': [2e-05]}, 'lr_scheduler': {'_name': 'polynomial_decay', 'warmup_updates': 68, 'force_anneal': None, 'end_learning_rate': 0.0, 'power': 1.0, 'total_num_update': 2500.0, 'lr': [2e-05]}, 'scoring': {'_name': 'bleu', 'pad': 1, 'eos': 2, 'unk': 3}, 'bpe': None, 'tokenizer': None}
+2022-03-29 07:57:12 | INFO | fairseq.tasks.mbart_sentence_prediction | [input] dictionary: 250002 types
+2022-03-29 07:57:12 | INFO | fairseq.tasks.mbart_sentence_prediction | [label] dictionary: 25 types
+2022-03-29 07:57:12 | INFO | fairseq.data.data_utils | loaded 911 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.prompt_2/Zh/input0/valid
+2022-03-29 07:57:12 | INFO | fairseq.data.data_utils | loaded 911 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.prompt_2/Zh/label/valid
+2022-03-29 07:57:12 | INFO | fairseq.tasks.mbart_sentence_prediction | Loaded valid with #samples: 911
+2022-03-29 07:57:32 | INFO | fairseq.models.bart.model | Registering classification head: sentence_classification_head
+2022-03-29 07:57:32 | INFO | fairseq_cli.train | BARTModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(250027, 1024, padding_idx=1)
+    (embed_positions): LearnedPositionalEmbedding(1026, 1024, padding_idx=1)
+    (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (6): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (7): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (8): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (9): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (10): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (11): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(250027, 1024, padding_idx=1)
+    (embed_positions): LearnedPositionalEmbedding(1026, 1024, padding_idx=1)
+    (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (6): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (7): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (8): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (9): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (10): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (11): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (output_projection): Linear(in_features=1024, out_features=250027, bias=False)
+  )
+  (classification_heads): ModuleDict(
+    (sentence_classification_head): BARTClassificationHead(
+      (dense): Linear(in_features=1024, out_features=1024, bias=True)
+      (dropout): Dropout(p=0.0, inplace=False)
+      (out_proj): Linear(in_features=1024, out_features=18, bias=True)
+    )
+  )
+)
+2022-03-29 07:57:32 | INFO | fairseq_cli.train | task: mBARTSentencePredictionTask
+2022-03-29 07:57:32 | INFO | fairseq_cli.train | model: BARTModel
+2022-03-29 07:57:32 | INFO | fairseq_cli.train | criterion: SentencePredictionCriterion)
+2022-03-29 07:57:32 | INFO | fairseq_cli.train | num. model params: 611919890 (num. trained: 611919890)
+2022-03-29 07:57:43 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight
+2022-03-29 07:57:43 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight
+2022-03-29 07:57:43 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2022-03-29 07:57:43 | INFO | fairseq.utils | rank   0: capabilities =  8.0  ; total memory = 39.587 GB ; name = A100-SXM4-40GB                          
+2022-03-29 07:57:43 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2022-03-29 07:57:43 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2022-03-29 07:57:43 | INFO | fairseq_cli.train | max tokens per GPU = 4400 and batch size per GPU = 64
+2022-03-29 07:57:47 | INFO | fairseq.trainer | loaded checkpoint /workspace/data/users/zanchangtong1/mbart.cc25/model.pt (epoch 142 @ 0 updates)
+2022-03-29 07:57:47 | INFO | fairseq.trainer | loading train data for epoch 1
+2022-03-29 07:57:47 | INFO | fairseq.data.data_utils | loaded 7124 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.prompt_2/Zh/input0/train
+2022-03-29 07:57:47 | INFO | fairseq.data.data_utils | loaded 7124 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.prompt_2/Zh/label/train
+2022-03-29 07:57:47 | INFO | fairseq.tasks.mbart_sentence_prediction | Loaded train with #samples: 7124
+2022-03-29 07:57:47 | INFO | fairseq.trainer | begin training epoch 1
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 608, in format
+    record.message = record.getMessage()
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 394, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 121, in main
+    disable_iterator_cache=task.has_sharded_data("train"),
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 196, in load_checkpoint
+    reset_meters=reset_meters,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/trainer.py", line 341, in load_checkpoint
+    state["model"], strict=False, model_cfg=self.cfg.model
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 113, in load_state_dict
+    self.upgrade_state_dict(state_dict)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 119, in upgrade_state_dict
+    self.upgrade_state_dict_named(state_dict, "")
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 283, in upgrade_state_dict_named
+    logger.info("Overwriting", prefix + "classification_heads." + k)
+Message: 'Overwriting'
+Arguments: ('classification_heads.sentence_classification_head.dense.weight',)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 608, in format
+    record.message = record.getMessage()
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 394, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 121, in main
+    disable_iterator_cache=task.has_sharded_data("train"),
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 196, in load_checkpoint
+    reset_meters=reset_meters,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/trainer.py", line 341, in load_checkpoint
+    state["model"], strict=False, model_cfg=self.cfg.model
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 113, in load_state_dict
+    self.upgrade_state_dict(state_dict)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 119, in upgrade_state_dict
+    self.upgrade_state_dict_named(state_dict, "")
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 283, in upgrade_state_dict_named
+    logger.info("Overwriting", prefix + "classification_heads." + k)
+Message: 'Overwriting'
+Arguments: ('classification_heads.sentence_classification_head.dense.bias',)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 608, in format
+    record.message = record.getMessage()
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 394, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 121, in main
+    disable_iterator_cache=task.has_sharded_data("train"),
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 196, in load_checkpoint
+    reset_meters=reset_meters,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/trainer.py", line 341, in load_checkpoint
+    state["model"], strict=False, model_cfg=self.cfg.model
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 113, in load_state_dict
+    self.upgrade_state_dict(state_dict)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 119, in upgrade_state_dict
+    self.upgrade_state_dict_named(state_dict, "")
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 283, in upgrade_state_dict_named
+    logger.info("Overwriting", prefix + "classification_heads." + k)
+Message: 'Overwriting'
+Arguments: ('classification_heads.sentence_classification_head.out_proj.weight',)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 608, in format
+    record.message = record.getMessage()
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 394, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 121, in main
+    disable_iterator_cache=task.has_sharded_data("train"),
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 196, in load_checkpoint
+    reset_meters=reset_meters,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/trainer.py", line 341, in load_checkpoint
+    state["model"], strict=False, model_cfg=self.cfg.model
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 113, in load_state_dict
+    self.upgrade_state_dict(state_dict)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 119, in upgrade_state_dict
+    self.upgrade_state_dict_named(state_dict, "")
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 283, in upgrade_state_dict_named
+    logger.info("Overwriting", prefix + "classification_heads." + k)
+Message: 'Overwriting'
+Arguments: ('classification_heads.sentence_classification_head.out_proj.bias',)
+2022-03-29 07:58:12 | INFO | train_inner | epoch 001:    100 / 250 loss=3.761, nll_loss=0.061, accuracy=12.1, wps=8233, ups=4.66, wpb=1769.8, bsz=28.8, num_updates=100, lr=1.97368e-05, gnorm=91.179, loss_scale=4, train_wall=24, wall=29
+2022-03-29 07:58:33 | INFO | train_inner | epoch 001:    200 / 250 loss=3.467, nll_loss=0.056, accuracy=14.8, wps=8241.8, ups=4.76, wpb=1730.2, bsz=28.1, num_updates=200, lr=1.89145e-05, gnorm=39.247, loss_scale=8, train_wall=21, wall=50
+2022-03-29 07:58:44 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 07:58:45 | INFO | valid | epoch 001 | valid on 'valid' subset | loss 3.214 | nll_loss 0.054 | accuracy 24.1 | wps 39065.8 | wpb 2024.1 | bsz 33.7 | num_updates 250
+2022-03-29 07:58:45 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 07:58:45 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint1.pt after 250 updates
+2022-03-29 07:59:10 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint1.pt
+2022-03-29 07:59:30 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint1.pt (epoch 1 @ 250 updates, score 24.1) (writing took 45.065904127433896 seconds)
+2022-03-29 07:59:30 | INFO | fairseq_cli.train | end of epoch 1 (average epoch stats below)
+2022-03-29 07:59:30 | INFO | train | epoch 001 | loss 3.567 | nll_loss 0.058 | accuracy 14.5 | wps 4397.1 | ups 2.5 | wpb 1758.3 | bsz 28.5 | num_updates 250 | lr 1.85033e-05 | gnorm 64.306 | loss_scale 8 | train_wall 55 | wall 107
+2022-03-29 07:59:30 | INFO | fairseq.trainer | begin training epoch 2
+2022-03-29 07:59:41 | INFO | train_inner | epoch 002:     50 / 250 loss=3.342, nll_loss=0.053, accuracy=20, wps=2587.4, ups=1.47, wpb=1755.9, bsz=28.1, num_updates=300, lr=1.80921e-05, gnorm=46.586, loss_scale=16, train_wall=21, wall=118
+2022-03-29 08:00:01 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 16.0
+2022-03-29 08:00:02 | INFO | train_inner | epoch 002:    151 / 250 loss=3.164, nll_loss=0.051, accuracy=25.8, wps=8250.5, ups=4.75, wpb=1736, bsz=28.1, num_updates=400, lr=1.72697e-05, gnorm=31.382, loss_scale=16, train_wall=21, wall=139
+2022-03-29 08:00:16 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 8.0
+2022-03-29 08:00:22 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:00:24 | INFO | valid | epoch 002 | valid on 'valid' subset | loss 2.271 | nll_loss 0.038 | accuracy 53 | wps 39582.9 | wpb 2024.1 | bsz 33.7 | num_updates 498 | best_accuracy 53
+2022-03-29 08:00:24 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:00:24 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint2.pt after 498 updates
+2022-03-29 08:00:41 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint2.pt
+2022-03-29 08:01:03 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint2.pt (epoch 2 @ 498 updates, score 53.0) (writing took 39.52802111953497 seconds)
+2022-03-29 08:01:03 | INFO | fairseq_cli.train | end of epoch 2 (average epoch stats below)
+2022-03-29 08:01:03 | INFO | train | epoch 002 | loss 3.055 | nll_loss 0.05 | accuracy 28.6 | wps 4675.1 | ups 2.66 | wpb 1757.9 | bsz 28.5 | num_updates 498 | lr 1.64638e-05 | gnorm 37.251 | loss_scale 8 | train_wall 51 | wall 200
+2022-03-29 08:01:04 | INFO | fairseq.trainer | begin training epoch 3
+2022-03-29 08:01:04 | INFO | train_inner | epoch 003:      2 / 250 loss=2.82, nll_loss=0.046, accuracy=35.1, wps=2894.6, ups=1.61, wpb=1799.7, bsz=29.4, num_updates=500, lr=1.64474e-05, gnorm=45.906, loss_scale=8, train_wall=21, wall=201
+2022-03-29 08:01:25 | INFO | train_inner | epoch 003:    102 / 250 loss=2.444, nll_loss=0.04, accuracy=44.6, wps=8644.8, ups=4.84, wpb=1785.2, bsz=29.1, num_updates=600, lr=1.5625e-05, gnorm=24.98, loss_scale=16, train_wall=20, wall=222
+2022-03-29 08:01:45 | INFO | train_inner | epoch 003:    202 / 250 loss=2.251, nll_loss=0.036, accuracy=47.3, wps=8314, ups=4.81, wpb=1727.3, bsz=27.7, num_updates=700, lr=1.48026e-05, gnorm=43.395, loss_scale=16, train_wall=20, wall=242
+2022-03-29 08:01:56 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:01:57 | INFO | valid | epoch 003 | valid on 'valid' subset | loss 1.473 | nll_loss 0.025 | accuracy 70.6 | wps 39628.3 | wpb 2024.1 | bsz 33.7 | num_updates 748 | best_accuracy 70.6
+2022-03-29 08:01:57 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:01:57 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint3.pt after 748 updates
+2022-03-29 08:02:11 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint3.pt
+2022-03-29 08:02:21 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint3.pt (epoch 3 @ 748 updates, score 70.6) (writing took 24.396503649652004 seconds)
+2022-03-29 08:02:21 | INFO | fairseq_cli.train | end of epoch 3 (average epoch stats below)
+2022-03-29 08:02:21 | INFO | train | epoch 003 | loss 2.285 | nll_loss 0.037 | accuracy 47.3 | wps 5635.5 | ups 3.21 | wpb 1758.3 | bsz 28.5 | num_updates 748 | lr 1.44079e-05 | gnorm 33.131 | loss_scale 32 | train_wall 51 | wall 278
+2022-03-29 08:02:22 | INFO | fairseq.trainer | begin training epoch 4
+2022-03-29 08:02:23 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 16.0
+2022-03-29 08:02:33 | INFO | train_inner | epoch 004:     53 / 250 loss=1.957, nll_loss=0.032, accuracy=53.9, wps=3801.5, ups=2.12, wpb=1794.4, bsz=29.2, num_updates=800, lr=1.39803e-05, gnorm=24.356, loss_scale=16, train_wall=21, wall=290
+2022-03-29 08:02:53 | INFO | train_inner | epoch 004:    153 / 250 loss=1.758, nll_loss=0.029, accuracy=59.6, wps=8469.6, ups=4.84, wpb=1750, bsz=28.6, num_updates=900, lr=1.31579e-05, gnorm=19.936, loss_scale=32, train_wall=20, wall=310
+2022-03-29 08:02:54 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 16.0
+2022-03-29 08:02:58 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 8.0
+2022-03-29 08:03:14 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:03:15 | INFO | valid | epoch 004 | valid on 'valid' subset | loss 1.295 | nll_loss 0.022 | accuracy 72.7 | wps 39636.9 | wpb 2024.1 | bsz 33.7 | num_updates 995 | best_accuracy 72.7
+2022-03-29 08:03:15 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:03:15 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint4.pt after 995 updates
+2022-03-29 08:03:32 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint4.pt
+2022-03-29 08:03:46 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint4.pt (epoch 4 @ 995 updates, score 72.7) (writing took 30.81967312283814 seconds)
+2022-03-29 08:03:46 | INFO | fairseq_cli.train | end of epoch 4 (average epoch stats below)
+2022-03-29 08:03:46 | INFO | train | epoch 004 | loss 1.775 | nll_loss 0.029 | accuracy 59.4 | wps 5147 | ups 2.92 | wpb 1759.7 | bsz 28.5 | num_updates 995 | lr 1.23766e-05 | gnorm 20.064 | loss_scale 8 | train_wall 51 | wall 363
+2022-03-29 08:03:46 | INFO | fairseq.trainer | begin training epoch 5
+2022-03-29 08:03:47 | INFO | train_inner | epoch 005:      5 / 250 loss=1.703, nll_loss=0.027, accuracy=62.2, wps=3240.8, ups=1.86, wpb=1742.7, bsz=28.1, num_updates=1000, lr=1.23355e-05, gnorm=19.341, loss_scale=8, train_wall=21, wall=364
+2022-03-29 08:04:08 | INFO | train_inner | epoch 005:    105 / 250 loss=1.548, nll_loss=0.025, accuracy=64.8, wps=8403.5, ups=4.8, wpb=1750.2, bsz=28.5, num_updates=1100, lr=1.15132e-05, gnorm=21.505, loss_scale=16, train_wall=20, wall=385
+2022-03-29 08:04:29 | INFO | train_inner | epoch 005:    205 / 250 loss=1.493, nll_loss=0.024, accuracy=66.1, wps=8581.8, ups=4.79, wpb=1793.1, bsz=29, num_updates=1200, lr=1.06908e-05, gnorm=30.011, loss_scale=32, train_wall=20, wall=406
+2022-03-29 08:04:35 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 16.0
+2022-03-29 08:04:38 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:04:40 | INFO | valid | epoch 005 | valid on 'valid' subset | loss 1.2 | nll_loss 0.02 | accuracy 75.4 | wps 39609.1 | wpb 2024.1 | bsz 33.7 | num_updates 1244 | best_accuracy 75.4
+2022-03-29 08:04:40 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:04:40 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint5.pt after 1244 updates
+2022-03-29 08:04:54 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint5.pt
+2022-03-29 08:05:14 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint5.pt (epoch 5 @ 1244 updates, score 75.4) (writing took 34.49455251917243 seconds)
+2022-03-29 08:05:14 | INFO | fairseq_cli.train | end of epoch 5 (average epoch stats below)
+2022-03-29 08:05:14 | INFO | train | epoch 005 | loss 1.516 | nll_loss 0.025 | accuracy 65.5 | wps 4966 | ups 2.83 | wpb 1757.6 | bsz 28.5 | num_updates 1244 | lr 1.03289e-05 | gnorm 26.062 | loss_scale 16 | train_wall 51 | wall 451
+2022-03-29 08:05:14 | INFO | fairseq.trainer | begin training epoch 6
+2022-03-29 08:05:26 | INFO | train_inner | epoch 006:     56 / 250 loss=1.507, nll_loss=0.024, accuracy=65.4, wps=2981.4, ups=1.74, wpb=1710, bsz=27.4, num_updates=1300, lr=9.86842e-06, gnorm=36.32, loss_scale=16, train_wall=21, wall=463
+2022-03-29 08:05:35 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 8.0
+2022-03-29 08:05:47 | INFO | train_inner | epoch 006:    157 / 250 loss=1.514, nll_loss=0.025, accuracy=66.4, wps=8393.3, ups=4.78, wpb=1756.7, bsz=28.7, num_updates=1400, lr=9.04605e-06, gnorm=42.799, loss_scale=8, train_wall=20, wall=484
+2022-03-29 08:06:07 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:06:08 | INFO | valid | epoch 006 | valid on 'valid' subset | loss 1.162 | nll_loss 0.019 | accuracy 76.3 | wps 39553.4 | wpb 2024.1 | bsz 33.7 | num_updates 1493 | best_accuracy 76.3
+2022-03-29 08:06:08 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:06:08 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint6.pt after 1493 updates
+2022-03-29 08:06:22 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint6.pt
+2022-03-29 08:06:42 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint6.pt (epoch 6 @ 1493 updates, score 76.3) (writing took 33.178841687738895 seconds)
+2022-03-29 08:06:42 | INFO | fairseq_cli.train | end of epoch 6 (average epoch stats below)
+2022-03-29 08:06:42 | INFO | train | epoch 006 | loss 1.466 | nll_loss 0.024 | accuracy 66.9 | wps 5003 | ups 2.85 | wpb 1757.1 | bsz 28.5 | num_updates 1493 | lr 8.28125e-06 | gnorm 39.047 | loss_scale 16 | train_wall 52 | wall 538
+2022-03-29 08:06:42 | INFO | fairseq.trainer | begin training epoch 7
+2022-03-29 08:06:43 | INFO | train_inner | epoch 007:      7 / 250 loss=1.383, nll_loss=0.022, accuracy=68.3, wps=3211.4, ups=1.79, wpb=1796.8, bsz=29, num_updates=1500, lr=8.22368e-06, gnorm=31.741, loss_scale=16, train_wall=21, wall=540
+2022-03-29 08:06:45 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 8.0
+2022-03-29 08:06:54 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 4.0
+2022-03-29 08:07:04 | INFO | train_inner | epoch 007:    109 / 250 loss=1.332, nll_loss=0.022, accuracy=70.2, wps=8385.8, ups=4.75, wpb=1765.8, bsz=28.8, num_updates=1600, lr=7.40132e-06, gnorm=29.66, loss_scale=4, train_wall=21, wall=561
+2022-03-29 08:07:25 | INFO | train_inner | epoch 007:    209 / 250 loss=1.202, nll_loss=0.019, accuracy=72.2, wps=8490.7, ups=4.78, wpb=1777.3, bsz=28.4, num_updates=1700, lr=6.57895e-06, gnorm=18.937, loss_scale=8, train_wall=21, wall=582
+2022-03-29 08:07:34 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:07:35 | INFO | valid | epoch 007 | valid on 'valid' subset | loss 1.169 | nll_loss 0.019 | accuracy 76.8 | wps 39510.2 | wpb 2024.1 | bsz 33.7 | num_updates 1741 | best_accuracy 76.8
+2022-03-29 08:07:35 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:07:35 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint7.pt after 1741 updates
+2022-03-29 08:07:50 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint7.pt
+2022-03-29 08:08:08 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint7.pt (epoch 7 @ 1741 updates, score 76.8) (writing took 33.31871427036822 seconds)
+2022-03-29 08:08:08 | INFO | fairseq_cli.train | end of epoch 7 (average epoch stats below)
+2022-03-29 08:08:08 | INFO | train | epoch 007 | loss 1.268 | nll_loss 0.021 | accuracy 71.2 | wps 5029.3 | ups 2.85 | wpb 1762.6 | bsz 28.6 | num_updates 1741 | lr 6.24178e-06 | gnorm 23.049 | loss_scale 8 | train_wall 51 | wall 625
+2022-03-29 08:08:08 | INFO | fairseq.trainer | begin training epoch 8
+2022-03-29 08:08:21 | INFO | train_inner | epoch 008:     59 / 250 loss=1.227, nll_loss=0.02, accuracy=72.7, wps=3097.5, ups=1.78, wpb=1740.9, bsz=28.5, num_updates=1800, lr=5.75658e-06, gnorm=22.121, loss_scale=8, train_wall=21, wall=638
+2022-03-29 08:08:44 | INFO | train_inner | epoch 008:    159 / 250 loss=1.167, nll_loss=0.019, accuracy=73.7, wps=7774.2, ups=4.38, wpb=1776.7, bsz=28.7, num_updates=1900, lr=4.93421e-06, gnorm=25.267, loss_scale=16, train_wall=22, wall=661
+2022-03-29 08:08:49 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 8.0
+2022-03-29 08:09:04 | INFO | fairseq.trainer | NOTE: overflow detected, setting loss scale to: 4.0
+2022-03-29 08:09:04 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:09:06 | INFO | valid | epoch 008 | valid on 'valid' subset | loss 1.155 | nll_loss 0.019 | accuracy 77.1 | wps 39616 | wpb 2024.1 | bsz 33.7 | num_updates 1989 | best_accuracy 77.1
+2022-03-29 08:09:06 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:09:06 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint8.pt after 1989 updates
+2022-03-29 08:09:26 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint8.pt
+2022-03-29 08:09:48 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint8.pt (epoch 8 @ 1989 updates, score 77.1) (writing took 42.286939876154065 seconds)
+2022-03-29 08:09:48 | INFO | fairseq_cli.train | end of epoch 8 (average epoch stats below)
+2022-03-29 08:09:48 | INFO | train | epoch 008 | loss 1.159 | nll_loss 0.019 | accuracy 73.8 | wps 4378.3 | ups 2.49 | wpb 1757.4 | bsz 28.5 | num_updates 1989 | lr 4.2023e-06 | gnorm 25.449 | loss_scale 4 | train_wall 54 | wall 725
+2022-03-29 08:09:48 | INFO | fairseq.trainer | begin training epoch 9
+2022-03-29 08:09:51 | INFO | train_inner | epoch 009:     11 / 250 loss=1.112, nll_loss=0.018, accuracy=74.6, wps=2561.1, ups=1.5, wpb=1707.1, bsz=27.8, num_updates=2000, lr=4.11184e-06, gnorm=25.298, loss_scale=4, train_wall=22, wall=728
+2022-03-29 08:10:12 | INFO | train_inner | epoch 009:    111 / 250 loss=1.102, nll_loss=0.018, accuracy=74.7, wps=8120.2, ups=4.66, wpb=1740.8, bsz=28.5, num_updates=2100, lr=3.28947e-06, gnorm=20.044, loss_scale=4, train_wall=21, wall=749
+2022-03-29 08:10:34 | INFO | train_inner | epoch 009:    211 / 250 loss=1.123, nll_loss=0.018, accuracy=74, wps=8153.9, ups=4.67, wpb=1747.2, bsz=28.1, num_updates=2200, lr=2.46711e-06, gnorm=26.446, loss_scale=8, train_wall=21, wall=771
+2022-03-29 08:10:42 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:11:03 | INFO | valid | epoch 009 | valid on 'valid' subset | loss 1.131 | nll_loss 0.019 | accuracy 78.4 | wps 39268.2 | wpb 2024.1 | bsz 33.7 | num_updates 2239 | best_accuracy 78.4
+2022-03-29 08:11:03 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:11:03 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint9.pt after 2239 updates
+2022-03-29 08:11:19 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint9.pt
+2022-03-29 08:11:39 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint9.pt (epoch 9 @ 2239 updates, score 78.4) (writing took 36.00044924765825 seconds)
+2022-03-29 08:11:39 | INFO | fairseq_cli.train | end of epoch 9 (average epoch stats below)
+2022-03-29 08:11:39 | INFO | train | epoch 009 | loss 1.112 | nll_loss 0.018 | accuracy 74.5 | wps 3967.7 | ups 2.26 | wpb 1758.3 | bsz 28.5 | num_updates 2239 | lr 2.14638e-06 | gnorm 22.415 | loss_scale 8 | train_wall 53 | wall 836
+2022-03-29 08:11:39 | INFO | fairseq.trainer | begin training epoch 10
+2022-03-29 08:11:52 | INFO | train_inner | epoch 010:     61 / 250 loss=1.072, nll_loss=0.017, accuracy=75.5, wps=2306, ups=1.28, wpb=1798.7, bsz=29.3, num_updates=2300, lr=1.64474e-06, gnorm=19.513, loss_scale=16, train_wall=21, wall=849
+2022-03-29 08:12:13 | INFO | train_inner | epoch 010:    161 / 250 loss=1.045, nll_loss=0.017, accuracy=76, wps=8067.2, ups=4.75, wpb=1696.9, bsz=27.2, num_updates=2400, lr=8.22368e-07, gnorm=20.813, loss_scale=32, train_wall=21, wall=870
+2022-03-29 08:12:31 | INFO | fairseq_cli.train | begin validation on "valid" subset
+2022-03-29 08:12:33 | INFO | valid | epoch 010 | valid on 'valid' subset | loss 1.089 | nll_loss 0.018 | accuracy 79.1 | wps 39643.2 | wpb 2024.1 | bsz 33.7 | num_updates 2489 | best_accuracy 79.1
+2022-03-29 08:12:33 | INFO | fairseq_cli.train | begin save checkpoint
+2022-03-29 08:12:33 | INFO | fairseq.trainer | Preparing to save checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint10.pt after 2489 updates
+2022-03-29 08:12:55 | INFO | fairseq.trainer | Finished saving checkpoint to /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint10.pt
+2022-03-29 08:13:16 | INFO | fairseq.checkpoint_utils | saved checkpoint /workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.prompt_2.zh_CN/checkpoint10.pt (epoch 10 @ 2489 updates, score 79.1) (writing took 43.577576931566 seconds)
+2022-03-29 08:13:16 | INFO | fairseq_cli.train | end of epoch 10 (average epoch stats below)
+2022-03-29 08:13:16 | INFO | train | epoch 010 | loss 1.055 | nll_loss 0.017 | accuracy 75.7 | wps 4501.7 | ups 2.56 | wpb 1758.3 | bsz 28.5 | num_updates 2489 | lr 9.04605e-08 | gnorm 20.913 | loss_scale 32 | train_wall 51 | wall 933
+2022-03-29 08:13:16 | INFO | fairseq_cli.train | done training in 929.5 seconds

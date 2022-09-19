@@ -1,0 +1,21 @@
+>> setup model...
+Traceback (most recent call last):
+  File "test_bart_XIE.py", line 54, in <module>
+    model = BARTModel.from_pretrained(model_name_or_path=args.model_path, checkpoint_file=args.checkpoint, src_lid=args.src_lid, tgt_lid=args.tgt_lid)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 138, in from_pretrained
+    **kwargs,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/hub_utils.py", line 73, in from_pretrained
+    arg_overrides=kwargs,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 291, in load_model_ensemble_and_task
+    state = load_checkpoint_to_cpu(filename, arg_overrides)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 227, in load_checkpoint_to_cpu
+    state = torch.load(f, map_location=torch.device("cpu"))
+  File "/opt/conda/envs/XIE/lib/python3.7/site-packages/torch/serialization.py", line 594, in load
+    return _load(opened_zipfile, map_location, pickle_module, **pickle_load_args)
+  File "/opt/conda/envs/XIE/lib/python3.7/site-packages/torch/serialization.py", line 853, in _load
+    result = unpickler.load()
+  File "/opt/conda/envs/XIE/lib/python3.7/site-packages/torch/serialization.py", line 845, in persistent_load
+    load_tensor(data_type, size, key, _maybe_decode_ascii(location))
+  File "/opt/conda/envs/XIE/lib/python3.7/site-packages/torch/serialization.py", line 833, in load_tensor
+    storage = zip_file.get_storage_from_record(name, size, dtype).storage()
+KeyboardInterrupt

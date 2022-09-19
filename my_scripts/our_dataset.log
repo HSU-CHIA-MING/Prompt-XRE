@@ -1,0 +1,87 @@
++ SRC=input0
++ TGT=label
++ data_home=/workspace/data/users/zanchangtong1/3_XIE/data
++ raw=/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh
++ spm_data=/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data
++ MODEL=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ SPM=/workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode
++ mkdir -p /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data
++ for type in input0 input1 input2 label
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ for type in input0 input1 input2 label
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ for type in input0 input1 input2 label
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ for type in input0 input1 input2 label
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ wait
++ /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model
++ DICT=/workspace/data/users/zanchangtong1/mbart.cc25/dict.txt
++ destdir=/workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh
++ rm -r /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh
++ mkdir -p /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh
++ fairseq-preprocess --only-source --trainpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input0 --validpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input0 --testpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input0 --destdir /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input0 --srcdict /workspace/data/users/zanchangtong1/mbart.cc25/dict.txt --workers 60
+2022-05-27 02:51:23 | INFO | fairseq_cli.preprocess | Namespace(align_suffix=None, alignfile=None, all_gather_list_size=16384, bf16=False, bpe=None, cpu=False, criterion='cross_entropy', dataset_impl='mmap', destdir='/workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input0', empty_cache_freq=0, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, joined_dictionary=False, log_format=None, log_interval=100, lr_scheduler='fixed', memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, model_parallel_size=1, no_progress_bar=False, nwordssrc=-1, nwordstgt=-1, only_source=True, optimizer=None, padding_factor=8, profile=False, quantization_config_path=None, reset_logging=True, scoring='bleu', seed=1, source_lang=None, srcdict='/workspace/data/users/zanchangtong1/mbart.cc25/dict.txt', target_lang=None, task='translation', tensorboard_logdir=None, testpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input0', tgtdict=None, threshold_loss_scale=None, thresholdsrc=0, thresholdtgt=0, tokenizer=None, tpu=False, trainpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input0', user_dir=None, validpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input0', wandb_project=None, workers=60)
+2022-05-27 02:51:23 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:51:35 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input0: 888598 sents, 33357574 tokens, 0.00421% replaced by <unk>
+2022-05-27 02:51:36 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:51:42 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input0: 21200 sents, 621039 tokens, 0.0108% replaced by <unk>
+2022-05-27 02:51:42 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:51:48 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input0: 31800 sents, 813031 tokens, 0.0166% replaced by <unk>
+2022-05-27 02:51:48 | INFO | fairseq_cli.preprocess | Wrote preprocessed data to /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input0
++ fairseq-preprocess --only-source --trainpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input1 --validpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input1 --testpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input1 --destdir /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input1 --srcdict /workspace/data/users/zanchangtong1/mbart.cc25/dict.txt --workers 60
+2022-05-27 02:51:51 | INFO | fairseq_cli.preprocess | Namespace(align_suffix=None, alignfile=None, all_gather_list_size=16384, bf16=False, bpe=None, cpu=False, criterion='cross_entropy', dataset_impl='mmap', destdir='/workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input1', empty_cache_freq=0, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, joined_dictionary=False, log_format=None, log_interval=100, lr_scheduler='fixed', memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, model_parallel_size=1, no_progress_bar=False, nwordssrc=-1, nwordstgt=-1, only_source=True, optimizer=None, padding_factor=8, profile=False, quantization_config_path=None, reset_logging=True, scoring='bleu', seed=1, source_lang=None, srcdict='/workspace/data/users/zanchangtong1/mbart.cc25/dict.txt', target_lang=None, task='translation', tensorboard_logdir=None, testpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input1', tgtdict=None, threshold_loss_scale=None, thresholdsrc=0, thresholdtgt=0, tokenizer=None, tpu=False, trainpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input1', user_dir=None, validpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input1', wandb_project=None, workers=60)
+2022-05-27 02:51:52 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:52:01 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input1: 888598 sents, 4474637 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:01 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:52:07 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input1: 21200 sents, 95150 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:07 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:52:12 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input1: 31800 sents, 138240 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:12 | INFO | fairseq_cli.preprocess | Wrote preprocessed data to /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input1
++ fairseq-preprocess --only-source --trainpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input2 --validpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input2 --testpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input2 --destdir /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input2 --srcdict /workspace/data/users/zanchangtong1/mbart.cc25/dict.txt --workers 60
+2022-05-27 02:52:16 | INFO | fairseq_cli.preprocess | Namespace(align_suffix=None, alignfile=None, all_gather_list_size=16384, bf16=False, bpe=None, cpu=False, criterion='cross_entropy', dataset_impl='mmap', destdir='/workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input2', empty_cache_freq=0, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, joined_dictionary=False, log_format=None, log_interval=100, lr_scheduler='fixed', memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, model_parallel_size=1, no_progress_bar=False, nwordssrc=-1, nwordstgt=-1, only_source=True, optimizer=None, padding_factor=8, profile=False, quantization_config_path=None, reset_logging=True, scoring='bleu', seed=1, source_lang=None, srcdict='/workspace/data/users/zanchangtong1/mbart.cc25/dict.txt', target_lang=None, task='translation', tensorboard_logdir=None, testpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input2', tgtdict=None, threshold_loss_scale=None, thresholdsrc=0, thresholdtgt=0, tokenizer=None, tpu=False, trainpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input2', user_dir=None, validpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input2', wandb_project=None, workers=60)
+2022-05-27 02:52:17 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:52:27 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/train.spm.input2: 888598 sents, 15918653 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:27 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:52:33 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/valid.spm.input2: 21200 sents, 287068 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:33 | INFO | fairseq_cli.preprocess | [None] Dictionary: 250001 types
+2022-05-27 02:52:39 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/spm_data/test.spm.input2: 31800 sents, 401407 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:39 | INFO | fairseq_cli.preprocess | Wrote preprocessed data to /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/input2
++ fairseq-preprocess --only-source --trainpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/train.label --validpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/valid.label --testpref /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/test.label --destdir /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/label --workers 60
+2022-05-27 02:52:42 | INFO | fairseq_cli.preprocess | Namespace(align_suffix=None, alignfile=None, all_gather_list_size=16384, bf16=False, bpe=None, cpu=False, criterion='cross_entropy', dataset_impl='mmap', destdir='/workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/label', empty_cache_freq=0, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, joined_dictionary=False, log_format=None, log_interval=100, lr_scheduler='fixed', memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, model_parallel_size=1, no_progress_bar=False, nwordssrc=-1, nwordstgt=-1, only_source=True, optimizer=None, padding_factor=8, profile=False, quantization_config_path=None, reset_logging=True, scoring='bleu', seed=1, source_lang=None, srcdict=None, target_lang=None, task='translation', tensorboard_logdir=None, testpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/test.label', tgtdict=None, threshold_loss_scale=None, thresholdsrc=0, thresholdtgt=0, tokenizer=None, tpu=False, trainpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/train.label', user_dir=None, validpref='/workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/valid.label', wandb_project=None, workers=60)
+2022-05-27 02:52:43 | INFO | fairseq_cli.preprocess | [None] Dictionary: 112 types
+2022-05-27 02:52:47 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/train.label: 888598 sents, 1777196 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:47 | INFO | fairseq_cli.preprocess | [None] Dictionary: 112 types
+2022-05-27 02:52:48 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/valid.label: 21200 sents, 42400 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:48 | INFO | fairseq_cli.preprocess | [None] Dictionary: 112 types
+2022-05-27 02:52:49 | INFO | fairseq_cli.preprocess | [None] /workspace/data/users/zanchangtong1/3_XIE/data/En-Zh/test.label: 31800 sents, 63600 tokens, 0.0% replaced by <unk>
+2022-05-27 02:52:49 | INFO | fairseq_cli.preprocess | Wrote preprocessed data to /workspace/data/users/zanchangtong1/3_XIE/data_bin/En-Zh/label
+nohup: ignoring input
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_4/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_4/checkpoint??.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_3/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_3/checkpoint??.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_1/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_1/checkpoint??.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_0/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_0/checkpoint??.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_2/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_2/checkpoint??.pt': No such file or directory
+nohup: ignoring input
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_4/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_4/checkpoint??.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_0/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_0/checkpoint??.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_3/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_3/checkpoint??.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_2/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_2/checkpoint??.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_1/checkpoint?.pt': No such file or directory
+rm: cannot remove '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/our_data.mbart.dropout_0.1.split_raw.prompt_v2_1/checkpoint??.pt': No such file or directory

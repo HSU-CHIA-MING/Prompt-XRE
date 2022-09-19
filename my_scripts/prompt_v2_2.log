@@ -1,0 +1,812 @@
+2022-05-25 13:04:54 | INFO | fairseq_cli.train | {'_name': None, 'common': {'_name': None, 'no_progress_bar': False, 'log_interval': 100, 'log_format': None, 'tensorboard_logdir': '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.dropout_0.1.split_raw.prompt_v2_2.en_XX/tensorboard', 'wandb_project': None, 'seed': 222, 'cpu': False, 'tpu': False, 'bf16': False, 'memory_efficient_bf16': False, 'fp16': True, 'memory_efficient_fp16': False, 'fp16_no_flatten_grads': False, 'fp16_init_scale': 4, 'fp16_scale_window': 128, 'fp16_scale_tolerance': 0.0, 'min_loss_scale': 0.0001, 'threshold_loss_scale': 1.0, 'user_dir': None, 'empty_cache_freq': 0, 'all_gather_list_size': 16384, 'model_parallel_size': 1, 'quantization_config_path': None, 'profile': False, 'reset_logging': True}, 'common_eval': {'_name': None, 'path': None, 'post_process': None, 'quiet': False, 'model_overrides': '{}', 'results_path': None}, 'distributed_training': {'_name': None, 'distributed_world_size': 1, 'distributed_rank': 0, 'distributed_backend': 'nccl', 'distributed_init_method': None, 'distributed_port': -1, 'device_id': 0, 'distributed_no_spawn': False, 'ddp_backend': 'no_c10d', 'bucket_cap_mb': 25, 'fix_batches_to_gpus': False, 'find_unused_parameters': True, 'fast_stat_sync': False, 'broadcast_buffers': False, 'distributed_wrapper': 'DDP', 'slowmo_momentum': None, 'slowmo_algorithm': 'LocalSGD', 'localsgd_frequency': 3, 'nprocs_per_node': 1, 'pipeline_model_parallel': False, 'pipeline_balance': None, 'pipeline_devices': None, 'pipeline_chunks': 0, 'pipeline_encoder_balance': None, 'pipeline_encoder_devices': None, 'pipeline_decoder_balance': None, 'pipeline_decoder_devices': None, 'pipeline_checkpoint': 'never', 'zero_sharding': 'none', 'tpu': False, 'distributed_num_procs': 1}, 'dataset': {'_name': None, 'num_workers': 1, 'skip_invalid_size_inputs_valid_test': False, 'max_tokens': 4400, 'batch_size': 12, 'required_batch_size_multiple': 1, 'required_seq_len_multiple': 1, 'dataset_impl': None, 'data_buffer_size': 10, 'train_subset': 'train', 'valid_subset': 'valid', 'validate_interval': 1, 'validate_interval_updates': 0, 'validate_after_updates': 0, 'fixed_validation_seed': None, 'disable_validation': False, 'max_tokens_valid': 4400, 'batch_size_valid': 12, 'curriculum': 0, 'gen_subset': 'test', 'num_shards': 1, 'shard_id': 0}, 'optimization': {'_name': None, 'max_epoch': 30, 'max_update': 16650, 'stop_time_hours': 0.0, 'clip_norm': 0.0, 'sentence_avg': False, 'update_freq': [1], 'lr': [3e-05], 'min_lr': -1.0, 'use_bmuf': False}, 'checkpoint': {'_name': None, 'save_dir': '/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.dropout_0.1.split_raw.prompt_v2_2.en_XX', 'restore_file': '/workspace/data/users/zanchangtong1/mbart.cc25/model.pt', 'finetune_from_model': None, 'reset_dataloader': True, 'reset_lr_scheduler': True, 'reset_meters': True, 'reset_optimizer': True, 'optimizer_overrides': '{}', 'save_interval': 1, 'save_interval_updates': 0, 'keep_interval_updates': -1, 'keep_last_epochs': -1, 'keep_best_checkpoints': -1, 'no_save': False, 'no_epoch_checkpoints': False, 'no_last_checkpoints': False, 'no_save_optimizer_state': False, 'best_checkpoint_metric': 'accuracy', 'maximize_best_checkpoint_metric': True, 'patience': -1, 'checkpoint_suffix': '', 'checkpoint_shard_count': 1, 'model_parallel_size': 1, 'distributed_rank': 0}, 'bmuf': {'_name': None, 'block_lr': 1.0, 'block_momentum': 0.875, 'global_sync_iter': 50, 'warmup_iterations': 500, 'use_nbm': False, 'average_sync': False, 'distributed_world_size': 1}, 'generation': {'_name': None, 'beam': 5, 'nbest': 1, 'max_len_a': 0.0, 'max_len_b': 200, 'min_len': 1, 'match_source_len': False, 'unnormalized': False, 'no_early_stop': False, 'no_beamable_mm': False, 'lenpen': 1.0, 'unkpen': 0.0, 'replace_unk': None, 'sacrebleu': False, 'score_reference': False, 'prefix_size': 0, 'no_repeat_ngram_size': 0, 'sampling': False, 'sampling_topk': -1, 'sampling_topp': -1.0, 'constraints': None, 'temperature': 1.0, 'diverse_beam_groups': -1, 'diverse_beam_strength': 0.5, 'diversity_rate': -1.0, 'print_alignment': False, 'print_step': False, 'lm_path': None, 'lm_weight': 0.0, 'iter_decode_eos_penalty': 0.0, 'iter_decode_max_iter': 10, 'iter_decode_force_max_iter': False, 'iter_decode_with_beam': 1, 'iter_decode_with_external_reranker': False, 'retain_iter_history': False, 'retain_dropout': False, 'retain_dropout_modules': None, 'decoding_format': None, 'no_seed_provided': False}, 'eval_lm': {'_name': None, 'output_word_probs': False, 'output_word_stats': False, 'context_window': 0, 'softmax_batch': 9223372036854775807}, 'interactive': {'_name': None, 'buffer_size': 0, 'input': '-'}, 'model': Namespace(_name='mbart_large', activation_fn='gelu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, add_prev_output_tokens=True, all_gather_list_size=16384, arch='mbart_large', attention_dropout=0.1, baseline=True, batch_size=12, batch_size_valid=12, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_shard_count=1, checkpoint_suffix='', classification_head_name='sentence_classification_head', clip_norm=0.0, cpu=False, criterion='sentence_prediction', cross_self_attention=False, curriculum=0, data='/workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/', data_buffer_size=10, dataset_impl=None, ddp_backend='no_c10d', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_input_dim=1024, decoder_layerdrop=0, decoder_layers=12, decoder_layers_to_keep=None, decoder_learned_pos=True, decoder_normalize_before=True, decoder_output_dim=1024, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=4096, encoder_layerdrop=0, encoder_layers=12, encoder_layers_to_keep=None, encoder_learned_pos=True, encoder_normalize_before=True, end_learning_rate=0.0, eos=2, fast_stat_sync=False, find_unused_parameters=True, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=4, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=128, gen_subset='test', init_token=0, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, langs='ar_AR,cs_CZ,de_DE,en_XX,es_XX,et_EE,fi_FI,fr_XX,gu_IN,hi_IN,it_IT,ja_XX,kk_KZ,ko_KR,lt_LT,lv_LV,my_MM,ne_NP,nl_XX,ro_RO,ru_RU,si_LK,tr_TR,vi_VN,zh_CN', layernorm_embedding=True, localsgd_frequency=3, log_format=None, log_interval=100, lr=[3e-05], lr_scheduler='polynomial_decay', max_epoch=30, max_source_positions=1024, max_target_positions=1024, max_tokens=4400, max_tokens_valid=4400, max_update=16650, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=-1.0, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=False, no_shuffle=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_classes=18, num_shards=1, num_workers=1, optimizer='adam', optimizer_overrides='{}', pad=1, patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, prepend_bos=False, profile=False, prompt_id='prompt_v2_2', quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, regression_target=False, relu_dropout=0.0, required_batch_size_multiple=1, required_seq_len_multiple=1, reset_dataloader=True, reset_logging=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, restore_file='/workspace/data/users/zanchangtong1/mbart.cc25/model.pt', save_dir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.dropout_0.1.split_raw.prompt_v2_2.en_XX', save_interval=1, save_interval_updates=0, scoring='bleu', seed=222, sentence_avg=False, separator_token=None, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, shorten_data_split_list='', shorten_method='none', skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, src_language='en_XX', stop_time_hours=0, task='mbart_sentence_prediction', tensorboard_logdir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.dropout_0.1.split_raw.prompt_v2_2.en_XX/tensorboard', tgt_language='en_XX', threshold_loss_scale=1.0, tokenizer=None, total_num_update='16650', tpu=False, train_subset='train', unk=3, update_freq=[1], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, wandb_project=None, warmup_updates=1665, weight_decay=0.01, zero_sharding='none'), 'task': Namespace(_name='mbart_sentence_prediction', activation_fn='gelu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, add_prev_output_tokens=True, all_gather_list_size=16384, arch='mbart_large', attention_dropout=0.1, baseline=True, batch_size=12, batch_size_valid=12, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_shard_count=1, checkpoint_suffix='', classification_head_name='sentence_classification_head', clip_norm=0.0, cpu=False, criterion='sentence_prediction', cross_self_attention=False, curriculum=0, data='/workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/', data_buffer_size=10, dataset_impl=None, ddp_backend='no_c10d', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_input_dim=1024, decoder_layerdrop=0, decoder_layers=12, decoder_layers_to_keep=None, decoder_learned_pos=True, decoder_normalize_before=True, decoder_output_dim=1024, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=4096, encoder_layerdrop=0, encoder_layers=12, encoder_layers_to_keep=None, encoder_learned_pos=True, encoder_normalize_before=True, end_learning_rate=0.0, eos=2, fast_stat_sync=False, find_unused_parameters=True, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=4, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=128, gen_subset='test', init_token=0, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, langs='ar_AR,cs_CZ,de_DE,en_XX,es_XX,et_EE,fi_FI,fr_XX,gu_IN,hi_IN,it_IT,ja_XX,kk_KZ,ko_KR,lt_LT,lv_LV,my_MM,ne_NP,nl_XX,ro_RO,ru_RU,si_LK,tr_TR,vi_VN,zh_CN', layernorm_embedding=True, localsgd_frequency=3, log_format=None, log_interval=100, lr=[3e-05], lr_scheduler='polynomial_decay', max_epoch=30, max_source_positions=1024, max_target_positions=1024, max_tokens=4400, max_tokens_valid=4400, max_update=16650, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=-1.0, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=False, no_shuffle=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_classes=18, num_shards=1, num_workers=1, optimizer='adam', optimizer_overrides='{}', pad=1, patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, prepend_bos=False, profile=False, prompt_id='prompt_v2_2', quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, regression_target=False, relu_dropout=0.0, required_batch_size_multiple=1, required_seq_len_multiple=1, reset_dataloader=True, reset_logging=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, restore_file='/workspace/data/users/zanchangtong1/mbart.cc25/model.pt', save_dir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.dropout_0.1.split_raw.prompt_v2_2.en_XX', save_interval=1, save_interval_updates=0, scoring='bleu', seed=222, sentence_avg=False, separator_token=None, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, shorten_data_split_list='', shorten_method='none', skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, src_language='en_XX', stop_time_hours=0, task='mbart_sentence_prediction', tensorboard_logdir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.dropout_0.1.split_raw.prompt_v2_2.en_XX/tensorboard', tgt_language='en_XX', threshold_loss_scale=1.0, tokenizer=None, total_num_update='16650', tpu=False, train_subset='train', unk=3, update_freq=[1], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, wandb_project=None, warmup_updates=1665, weight_decay=0.01, zero_sharding='none'), 'criterion': Namespace(_name='sentence_prediction', activation_fn='gelu', adam_betas='(0.9, 0.98)', adam_eps=1e-08, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, add_prev_output_tokens=True, all_gather_list_size=16384, arch='mbart_large', attention_dropout=0.1, baseline=True, batch_size=12, batch_size_valid=12, best_checkpoint_metric='accuracy', bf16=False, bpe=None, broadcast_buffers=False, bucket_cap_mb=25, checkpoint_shard_count=1, checkpoint_suffix='', classification_head_name='sentence_classification_head', clip_norm=0.0, cpu=False, criterion='sentence_prediction', cross_self_attention=False, curriculum=0, data='/workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/', data_buffer_size=10, dataset_impl=None, ddp_backend='no_c10d', decoder_attention_heads=16, decoder_embed_dim=1024, decoder_embed_path=None, decoder_ffn_embed_dim=4096, decoder_input_dim=1024, decoder_layerdrop=0, decoder_layers=12, decoder_layers_to_keep=None, decoder_learned_pos=True, decoder_normalize_before=True, decoder_output_dim=1024, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, empty_cache_freq=0, encoder_attention_heads=16, encoder_embed_dim=1024, encoder_embed_path=None, encoder_ffn_embed_dim=4096, encoder_layerdrop=0, encoder_layers=12, encoder_layers_to_keep=None, encoder_learned_pos=True, encoder_normalize_before=True, end_learning_rate=0.0, eos=2, fast_stat_sync=False, find_unused_parameters=True, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=True, fp16_init_scale=4, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=128, gen_subset='test', init_token=0, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, langs='ar_AR,cs_CZ,de_DE,en_XX,es_XX,et_EE,fi_FI,fr_XX,gu_IN,hi_IN,it_IT,ja_XX,kk_KZ,ko_KR,lt_LT,lv_LV,my_MM,ne_NP,nl_XX,ro_RO,ru_RU,si_LK,tr_TR,vi_VN,zh_CN', layernorm_embedding=True, localsgd_frequency=3, log_format=None, log_interval=100, lr=[3e-05], lr_scheduler='polynomial_decay', max_epoch=30, max_source_positions=1024, max_target_positions=1024, max_tokens=4400, max_tokens_valid=4400, max_update=16650, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=-1.0, model_parallel_size=1, no_cross_attention=False, no_epoch_checkpoints=False, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=False, no_shuffle=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_classes=18, num_shards=1, num_workers=1, optimizer='adam', optimizer_overrides='{}', pad=1, patience=-1, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, prepend_bos=False, profile=False, prompt_id='prompt_v2_2', quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, regression_target=False, relu_dropout=0.0, required_batch_size_multiple=1, required_seq_len_multiple=1, reset_dataloader=True, reset_logging=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, restore_file='/workspace/data/users/zanchangtong1/mbart.cc25/model.pt', save_dir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.dropout_0.1.split_raw.prompt_v2_2.en_XX', save_interval=1, save_interval_updates=0, scoring='bleu', seed=222, sentence_avg=False, separator_token=None, shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, shorten_data_split_list='', shorten_method='none', skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, src_language='en_XX', stop_time_hours=0, task='mbart_sentence_prediction', tensorboard_logdir='/workspace/data/users/zanchangtong1/3_XIE/checkpoints/ace05.mbart.dropout_0.1.split_raw.prompt_v2_2.en_XX/tensorboard', tgt_language='en_XX', threshold_loss_scale=1.0, tokenizer=None, total_num_update='16650', tpu=False, train_subset='train', unk=3, update_freq=[1], use_bmuf=False, use_old_adam=False, user_dir=None, valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, wandb_project=None, warmup_updates=1665, weight_decay=0.01, zero_sharding='none'), 'optimizer': {'_name': 'adam', 'adam_betas': '(0.9, 0.98)', 'adam_eps': 1e-08, 'weight_decay': 0.01, 'use_old_adam': False, 'tpu': False, 'lr': [3e-05]}, 'lr_scheduler': {'_name': 'polynomial_decay', 'warmup_updates': 1665, 'force_anneal': None, 'end_learning_rate': 0.0, 'power': 1.0, 'total_num_update': 16650.0, 'lr': [3e-05]}, 'scoring': {'_name': 'bleu', 'pad': 1, 'eos': 2, 'unk': 3}, 'bpe': None, 'tokenizer': None}
+2022-05-25 13:04:55 | INFO | fairseq.tasks.mbart_sentence_prediction | [input] dictionary: 250002 types
+2022-05-25 13:04:55 | INFO | fairseq.tasks.mbart_sentence_prediction | [label] dictionary: 25 types
+2022-05-25 13:04:55 | INFO | fairseq.data.data_utils | loaded 822 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/input0/valid
+2022-05-25 13:04:55 | INFO | fairseq.data.data_utils | loaded 822 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/input1/valid
+2022-05-25 13:04:55 | INFO | fairseq.data.data_utils | loaded 822 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/input2/valid
+>> Run experiment with prompt_v2_0 ==>  src:[ sent </s> entity1 <mask> entity2 </s> <LID> ]; tgt:[ <LID> sent </s> ] 
+2022-05-25 13:04:55 | INFO | fairseq.data.data_utils | loaded 822 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/label/valid
+2022-05-25 13:04:55 | INFO | fairseq.tasks.mbart_sentence_prediction | Loaded valid with #samples: 822
+2022-05-25 13:05:13 | INFO | fairseq.models.bart.model | Registering classification head: sentence_classification_head
+2022-05-25 13:05:13 | INFO | fairseq_cli.train | BARTModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(250027, 1024, padding_idx=1)
+    (embed_positions): LearnedPositionalEmbedding(1026, 1024, padding_idx=1)
+    (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (6): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (7): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (8): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (9): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (10): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (11): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(250027, 1024, padding_idx=1)
+    (embed_positions): LearnedPositionalEmbedding(1026, 1024, padding_idx=1)
+    (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (6): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (7): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (8): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (9): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (10): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+      (11): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+        (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+        (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    (output_projection): Linear(in_features=1024, out_features=250027, bias=False)
+  )
+  (classification_heads): ModuleDict(
+    (sentence_classification_head): BARTClassificationHead(
+      (dense): Linear(in_features=1024, out_features=1024, bias=True)
+      (dropout): Dropout(p=0.0, inplace=False)
+      (out_proj): Linear(in_features=1024, out_features=18, bias=True)
+    )
+  )
+)
+2022-05-25 13:05:13 | INFO | fairseq_cli.train | task: mBARTSentencePredictionTask
+2022-05-25 13:05:13 | INFO | fairseq_cli.train | model: BARTModel
+2022-05-25 13:05:13 | INFO | fairseq_cli.train | criterion: SentencePredictionCriterion)
+2022-05-25 13:05:13 | INFO | fairseq_cli.train | num. model params: 611919890 (num. trained: 611919890)
+2022-05-25 13:05:18 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight
+2022-05-25 13:05:18 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight
+2022-05-25 13:05:18 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2022-05-25 13:05:18 | INFO | fairseq.utils | rank   0: capabilities =  8.0  ; total memory = 39.587 GB ; name = A100-SXM4-40GB                          
+2022-05-25 13:05:18 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2022-05-25 13:05:18 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2022-05-25 13:05:18 | INFO | fairseq_cli.train | max tokens per GPU = 4400 and batch size per GPU = 12
+2022-05-25 13:05:22 | INFO | fairseq.trainer | loaded checkpoint /workspace/data/users/zanchangtong1/mbart.cc25/model.pt (epoch 142 @ 0 updates)
+2022-05-25 13:05:22 | INFO | fairseq.trainer | loading train data for epoch 1
+2022-05-25 13:05:22 | INFO | fairseq.data.data_utils | loaded 6653 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/input0/train
+2022-05-25 13:05:22 | INFO | fairseq.data.data_utils | loaded 6653 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/input1/train
+2022-05-25 13:05:22 | INFO | fairseq.data.data_utils | loaded 6653 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/input2/train
+>> Run experiment with prompt_v2_0 ==>  src:[ sent </s> entity1 <mask> entity2 </s> <LID> ]; tgt:[ <LID> sent </s> ] 
+2022-05-25 13:05:22 | INFO | fairseq.data.data_utils | loaded 6653 examples from: /workspace/data/users/zanchangtong1/3_XIE/data_bin/ace05/mbart.split_raw/En/label/train
+2022-05-25 13:05:22 | INFO | fairseq.tasks.mbart_sentence_prediction | Loaded train with #samples: 6653
+2022-05-25 13:05:22 | INFO | fairseq.trainer | begin training epoch 1
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 608, in format
+    record.message = record.getMessage()
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 397, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 121, in main
+    disable_iterator_cache=task.has_sharded_data("train"),
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 196, in load_checkpoint
+    reset_meters=reset_meters,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/trainer.py", line 341, in load_checkpoint
+    state["model"], strict=False, model_cfg=self.cfg.model
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 113, in load_state_dict
+    self.upgrade_state_dict(state_dict)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 119, in upgrade_state_dict
+    self.upgrade_state_dict_named(state_dict, "")
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 298, in upgrade_state_dict_named
+    logger.info("Overwriting", prefix + "classification_heads." + k)
+Message: 'Overwriting'
+Arguments: ('classification_heads.sentence_classification_head.dense.weight',)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 608, in format
+    record.message = record.getMessage()
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 397, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 121, in main
+    disable_iterator_cache=task.has_sharded_data("train"),
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 196, in load_checkpoint
+    reset_meters=reset_meters,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/trainer.py", line 341, in load_checkpoint
+    state["model"], strict=False, model_cfg=self.cfg.model
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 113, in load_state_dict
+    self.upgrade_state_dict(state_dict)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 119, in upgrade_state_dict
+    self.upgrade_state_dict_named(state_dict, "")
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 298, in upgrade_state_dict_named
+    logger.info("Overwriting", prefix + "classification_heads." + k)
+Message: 'Overwriting'
+Arguments: ('classification_heads.sentence_classification_head.dense.bias',)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 608, in format
+    record.message = record.getMessage()
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 397, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 121, in main
+    disable_iterator_cache=task.has_sharded_data("train"),
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 196, in load_checkpoint
+    reset_meters=reset_meters,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/trainer.py", line 341, in load_checkpoint
+    state["model"], strict=False, model_cfg=self.cfg.model
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 113, in load_state_dict
+    self.upgrade_state_dict(state_dict)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 119, in upgrade_state_dict
+    self.upgrade_state_dict_named(state_dict, "")
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 298, in upgrade_state_dict_named
+    logger.info("Overwriting", prefix + "classification_heads." + k)
+Message: 'Overwriting'
+Arguments: ('classification_heads.sentence_classification_head.out_proj.weight',)
+--- Logging error ---
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 608, in format
+    record.message = record.getMessage()
+  File "/opt/conda/envs/XIE/lib/python3.7/logging/__init__.py", line 369, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 397, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 121, in main
+    disable_iterator_cache=task.has_sharded_data("train"),
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/checkpoint_utils.py", line 196, in load_checkpoint
+    reset_meters=reset_meters,
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/trainer.py", line 341, in load_checkpoint
+    state["model"], strict=False, model_cfg=self.cfg.model
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 113, in load_state_dict
+    self.upgrade_state_dict(state_dict)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/fairseq_model.py", line 119, in upgrade_state_dict
+    self.upgrade_state_dict_named(state_dict, "")
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/models/bart/model.py", line 298, in upgrade_state_dict_named
+    logger.info("Overwriting", prefix + "classification_heads." + k)
+Message: 'Overwriting'
+Arguments: ('classification_heads.sentence_classification_head.out_proj.bias',)
+>>  [OrderedDict([('id', tensor([4966,  317, 4723, 5315, 6290, 3077, 2689,  622, 3315, 2704, 2356, 5239])), ('net_input', OrderedDict([('src_tokens', tensor([[     0,   4966,   5036,      4,    442,     25,      7,     70,  69496,
+             14,  72002,      7,   9601,     25,      7,   1733,     47,  31358,
+              4,     70,  14098,  46684,      5,     70,  69496,     14,  72002,
+              7,   9601, 250001,     70,  14098,  46684,      2, 250005,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,    601,  87747,  17759,  30110,    581,  14098,  46684,  19295,
+             53,    136, 106294, 135440, 172040,      7,    621, 101904,  11469,
+          48031,     23,     70,  57309,     66,  16965,    420,  20271,     70,
+          69496,   1631,      5,    581,  14098,  46684,  19295,     53,    136,
+         106294, 135440, 172040,      7, 250001,    581,  14098,  46684,  19295,
+             53,    136, 106294, 135440,      2, 250005,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,    581,  88308,    111,    479,  61823,    449,    845,  19725,
+            678,     10,    759,    824,  93905, 202711,    704,     42,  47314,
+             70,  83572,      7,    136,     57,   4126,   2678,  12610,    845,
+          19725,      5,   2678,  12610,    845,  19725, 250001,  12610,      2,
+         250005,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,  69496,     14,   1119,   1340,  17354,    195,  95137,   4086,
+              7,  66747,     71,  34202,   4939,    563,      5, 118963,     25,
+              7,   1119,   5922,  22062,      4, 111767,    284,   1042,    959,
+           2367,    935,  23295,    831,     54,    100,    398,      4,   1284,
+           2367,    398,    831,     54,    100,    935,  23295,      4,   4765,
+            136,  35839,     98,  69496,    164,     47,  33022,     10, 171484,
+              4, 137633,     10,   8437,   5426,    136,  16916,   2367,  31486,
+             70,    187,   1176,   5608,  11301,      5,    935, 250001,    935,
+          23295,      2, 250005],
+        [     0,   4939,  33876,      4,   2750,   1902,   2809,  80399,    214,
+          26548,     70,  27165,      4,  51876,  66570,     23,     70,  10336,
+          50782,     10,  29685,     23, 111155,   8202, 103724,   3229,     70,
+         116983,    158,    686,  89829,  14949,     62, 128667,  93847,   1379,
+             70,  27165,     23,  82490,     10,  29685,     23, 111155,  52260,
+             14, 144225, 250001, 111155,  52260,     14, 144225,      2, 250005,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,   1401,     25,    107,   7730,     47,    738,  69405,     47,
+         144477,   9022,  69496,   5036,   7440,    642,   7413,  75533,  82122,
+            660,   3419,   1401,    112,    669,      5,  75533,  32399,  18908,
+          37379, 250001,  75533,      2, 250005,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,    360,     10,  63805,      4,  11335,    603,   4210,   2750,
+          34739,     98,     70,     44,  93136,  30283,     58,  31486,     99,
+             70,   2663,    111,  83908,   4607,     25,      7,   7082, 141778,
+          41018,      7,     23,  14487,   4210,   2804,   1919,   4602,   5337,
+          71232,  21115,   1221,    351,     13,   2347,   9393,  47143,     10,
+          12008,  31958,    111,  83908,   4607,  53900,  58815,      5,   2750,
+         250001,  83908,   4607,     25,      7,   7082, 141778,  41018,      7,
+              2, 250005,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,  24784,  57912,  10931,    294,  25066,    214,    645,  69496,
+              4,   8667,    219, 165458,      7,      4,  75533,      5,   8667,
+            219, 165458,      7, 250001,  75533,      2, 250005,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,  82514,   1314,    765,   2843,   5962,  30388,      7,     23,
+             70, 144477,   9022, 162708,    111,   8455,    202,      4,  70605,
+           2247,    136,  19591,   2783,      4, 216024,     25,      7,   5368,
+          35461,      5, 216024, 250001, 216024,     25,      7,   5368,  35461,
+              2, 250005,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0, 116338,  51521,      7,   5154,     10,  18025,   1340,   5962,
+           1919,   1631,    927,   1663,    136,    764,    509, 168861,     47,
+             28,  75161,      5,   1919, 250001,   1919,   1631,    927,   1663,
+              2, 250005,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,   3060,    111,   6097,     21,  34204,    136,  21507,    133,
+           1055,    621,   7730,     47,    186,  54433,  33600,     31,     47,
+           2363,  87143,      5,   2363,  69128,      7, 250001,   2363,      2,
+         250005,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1],
+        [     0,   2071,     19,     25,     18,   2446,  13918,  44691,     47,
+            186,   4210,   6777,    764,  19916,     70, 184099,   1294,     32,
+           2446,  13918, 250001,   2446,      2, 250005,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1,      1]])), ('src_lengths', tensor([35, 51, 37, 75, 54, 32, 65, 25, 38, 29, 28, 24])), ('prev_output_tokens', tensor([[250005,     70,  69496,     14,  72002,      7,   9601,     70,  14098,
+          46684,      2,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,    581,  14098,  46684,  19295,     53,    136, 106294, 135440,
+         172040,      7,    581,  14098,  46684,  19295,     53,    136, 106294,
+         135440,      2],
+        [250005,   2678,  12610,    845,  19725,  12610,      2,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,    935,    935,  23295,      2,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,     10,  29685,     23, 111155,  52260,     14, 144225, 111155,
+          52260,     14, 144225,      2,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,  75533,  32399,  18908,  37379,  75533,      2,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,   2750,  83908,   4607,     25,      7,   7082, 141778,  41018,
+              7,      2,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,   8667,    219, 165458,      7,  75533,      2,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005, 216024, 216024,     25,      7,   5368,  35461,      2,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,   1919,   1919,   1631,    927,   1663,      2,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,   2363,  69128,      7,   2363,      2,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1],
+        [250005,   2446,  13918,   2446,      2,      1,      1,      1,      1,
+              1,      1,      1,      1,      1,      1,      1,      1,      1,
+              1,      1]]))])), ('nsentences', 12), ('ntokens', 493), ('target', tensor([[1],
+        [0],
+        [5],
+        [5],
+        [2],
+        [0],
+        [0],
+        [0],
+        [5],
+        [3],
+        [4],
+        [0]]))])]
+>> src: ▁But ▁now , ▁it ' s ▁the ▁Iraq i ▁ambas s ador ' s ▁time ▁to ▁leave , ▁the ▁United ▁States . ▁the ▁Iraq i ▁ambas s ador <mask> ▁the ▁United ▁States [en_XX] <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad>
+>> tgt: [en_XX] ▁the ▁Iraq i ▁ambas s ador ▁the ▁United ▁States <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad> <pad>
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/bin/fairseq-train", line 33, in <module>
+    sys.exit(load_entry_point('fairseq', 'console_scripts', 'fairseq-train')())
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 397, in cli_main
+    distributed_utils.call_main(cfg, main)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq/distributed_utils.py", line 334, in call_main
+    main(cfg, **kwargs)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 130, in main
+    valid_losses, should_stop = train(cfg, trainer, task, epoch_itr)
+  File "/opt/conda/envs/XIE/lib/python3.7/contextlib.py", line 74, in inner
+    return func(*args, **kwds)
+  File "/workspace/data/users/zanchangtong1/3_XIE/fairseq/fairseq_cli/train.py", line 223, in train
+    assert False
+AssertionError

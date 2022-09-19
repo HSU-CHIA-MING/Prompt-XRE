@@ -1,0 +1,18 @@
+Fatal Python error: initsite: Failed to import the site module
+Traceback (most recent call last):
+  File "/opt/conda/envs/XIE/lib/python3.7/site.py", line 579, in <module>
+    main()
+  File "/opt/conda/envs/XIE/lib/python3.7/site.py", line 566, in main
+    known_paths = addsitepackages(known_paths)
+  File "/opt/conda/envs/XIE/lib/python3.7/site.py", line 349, in addsitepackages
+    addsitedir(sitedir, known_paths)
+  File "/opt/conda/envs/XIE/lib/python3.7/site.py", line 207, in addsitedir
+    addpackage(sitedir, name, known_paths)
+  File "/opt/conda/envs/XIE/lib/python3.7/site.py", line 159, in addpackage
+    f = open(fullname, "r")
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 843, in get_code
+KeyboardInterrupt
