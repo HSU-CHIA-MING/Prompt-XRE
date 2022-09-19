@@ -1,3 +1,3 @@
 # Prompt-XRE
 
-WMT17 zhen XRE dataset in tag
+Code of our paper “Prompt-Learning for Cross-Lingual Relation Extraction”
