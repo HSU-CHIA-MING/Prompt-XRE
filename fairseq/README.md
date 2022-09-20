@@ -1,4 +1,3 @@
-# BETTER Encoders (En/Fa)
 
 ## Prerequisites
 ```
