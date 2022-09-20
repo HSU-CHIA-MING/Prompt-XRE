@@ -1,4 +1,0 @@
-The sentence of
-includes 
-The sentence:" "
- /workspace/data/users/zanchangtong1/zanchangtong1/sentencepiece/build/src/spm_encode --model=/workspace/data/users/zanchangtong1/mbart.cc25/sentence.bpe.model < prompt.txt > prompt.spm.txt
