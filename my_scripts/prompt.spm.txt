@@ -1,0 +1,4 @@
+▁The ▁sentence ▁of
+▁includes
+▁The ▁sentence : " ▁"
+▁/ work space / data / us ers / zan chang tong 1/ zan chang tong 1/ sent ence piece / build / s rc / s pm _ en code ▁-- model = / work space / data / us ers / zan chang tong 1/ mbar t . cc 25 / sent ence . b pe . model ▁< ▁prompt . txt ▁> ▁prompt . s pm . txt
