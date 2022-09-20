@@ -101,10 +101,4 @@ done
 ```
 
 
-## Training
 
-`train.sh` is used to trained the EnFa encoder.
-
-## Conversion
-
-`convert.py` convert the fairseq checkpoint to huggingface format. Note that it has additionally dependency on the source code of `transformers` tag `v2.11.0` since some of the module is not exposed.
